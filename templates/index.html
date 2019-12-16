@@ -1,33 +1,78 @@
 <html>
 
 <head>
-    <title>atcoder-graph-generator</title>
+    <title>AtCoder Submission Search</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">AtCoder RatingGraph Generator</a>
+        <a class="navbar-brand" href="#">AtCoder Submission Search</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="text-white nav-link" href="https://github.com/ysugiyama12/atcoder-ratinggraph-generator"><i class="fab fa-github"></i></a>
+        <a class="text-white nav-link" href="https://github.com/ysugiyama12/atcoder-submission-search"><i
+                class="fab fa-github"></i></a>
         <a class="text-white nav-link" href="https://twitter.com/yuji9511_compro"><i class="fab fa-twitter"></i></a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             </ul>
-            <form class="form-inline my-2 my-lg-0" method="GET">
-                <input class="form-control mr-sm-2" type="search" placeholder="ユーザIDを入力" aria-label="Search"
-                    name="username" value="{{username}}">
-                <button class="btn x-outline-success my-2 my-sm-0 text-light" type="submit">このユーザで初期化する</button>
-            </form>
         </div>
     </nav>
+    <div class="container-fluid">
+        <div class="row side-row">
+            <nav role="sidebar" class="col-md-3 d-none d-md-block bg-light sidebar pl-4 pr-4">
+                <div class="mb-3">
+                    <div>
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">キーワード</label>
+                                <input type="text" class="form-control" name="keyword" placeholder="SegmentTree" value="{{params.keyword}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">ユーザID</label>
+                                <input type="text" class="form-control" name="user_id" placeholder="tourist" value="{{params.user_id}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">言語</label>
+                                <select class="form-control" name="language" value="{{params.language}}">
+                                    <option>C</option>
+                                    <option>C++</option>
+                                    <option>Java</option>
+                                    <option>Python2</option>
+                                    <option>Python3</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">検索</button>
+                        </form>
+                    </div>
+            </nav>
+            <div class="col-md-9 results">
+                あああああ
+            </div>
+        </div>
+    </div>
+
+    <!-- <form class="search-form">
+        <div class="row">
+            <div class="col">
+                <label for="exampleFormControlInput1">検索ワード</label>
+
+                <input type="text" class="form-control" placeholder="First name">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Last name">
+            </div>
+        </div>
+    </form> -->
+
+
 
 </body>
 
@@ -39,7 +84,7 @@
     }
 
     .row {
-        width: 100%;
+        /* width: 100%; */
     }
 
     .graph-right {
@@ -47,6 +92,35 @@
         overflow-y: scroll;
         border: 1px solid grey;
         margin: 3px;
+    }
+
+    /* .search-form {
+        width: 50%;
+        margin: auto;
+    } */
+
+
+
+    .sidebar {
+        padding-top: 80px;
+        position: fixed;
+        height: 100%;
+    }
+
+    .container-fluid {
+        height: 100%;
+    }
+
+
+    .navbar {
+        position: fixed;
+        width: 100%;
+        z-index: 9999;
+    }
+
+    .results {
+        margin-left: 30%;
+        padding-top: 80px;
     }
 </style>
 <script>
