@@ -33,20 +33,32 @@
                         <form>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">キーワード</label>
-                                <input type="text" class="form-control" name="keyword" placeholder="SegmentTree" value="{{params.keyword}}">
+                                <input type="text" class="form-control" name="keyword" placeholder="SegmentTree"
+                                    value="{{params.keyword}}">
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">ユーザID</label>
-                                <input type="text" class="form-control" name="user_id" placeholder="tourist" value="{{params.user_id}}">
+                                <input type="text" class="form-control" name="user_id" placeholder="tourist"
+                                    value="{{params.user_id}}">
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">言語</label>
                                 <select class="form-control" name="language" value="{{params.language}}">
                                     <option>C</option>
-                                    <option>C++</option>
+                                    <option>C++14 (GCC 5.4.1)</option>
                                     <option>Java</option>
                                     <option>Python2</option>
                                     <option>Python3</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">結果</label>
+                                <select class="form-control" name="result" value="{{params.result}}">
+                                    <option>AC</option>
+                                    <option>WA</option>
+                                    <option>TLE</option>
+                                    <option>RE</option>
+                                    <option>MLE</option>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary">検索</button>
@@ -54,7 +66,28 @@
                     </div>
             </nav>
             <div class="col-md-9 results">
-                あああああ
+                <h5>検索結果</h5>
+                <table class="table">
+                    <tr>
+                        <th>コンテスト</th>
+                        <th>問題</th>
+                        <th>ユーザ</th>
+                        <th>言語</th>
+                        <th>結果</th>
+                        <th></th>
+                    </tr>
+                    {% for d in data %}
+                    <tr>
+                        <th>{{d.contest_name}}</th>
+                        <th>{{d.problem_name}}</th>
+                        <th>{{d.user_id}}</th>
+                        <th>{{d.language}}</th>
+                        <th>{{d.result}}</th>
+                        <th><a href="{{d.url}}">詳細</a></th>
+                    </tr>
+                    {% endfor %}
+                </table>
+
             </div>
         </div>
     </div>
@@ -119,8 +152,14 @@
     }
 
     .results {
-        margin-left: 30%;
+        margin-left: 25%;
         padding-top: 80px;
+    }
+
+    .card {
+        width: 80%;
+        margin: auto;
+        margin-bottom: 10px;
     }
 </style>
 <script>
