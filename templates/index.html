@@ -43,22 +43,134 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">言語</label>
-                                <select class="form-control" name="language" value="{{params.language}}">
-                                    <option>C</option>
-                                    <option>C++14 (GCC 5.4.1)</option>
-                                    <option>Java</option>
-                                    <option>Python2</option>
-                                    <option>Python3</option>
+                                <select class="form-control" name="language" id="language" value="{{params.language}}">
+                                    <option id="lang-0">-</option>
+                                    <!-- <option id="lang-1">C++14 (GCC 5.4.1)</option>
+                                    <option id="lang-2">Java8 (OpenJDK 1.8.0)</option>
+                                    <option id="lang-3">Python3 (3.4.3)</option> -->
+                                    <option>C&#43;&#43;14 (GCC 5.4.1)</option>
+
+                                    <option>Bash (GNU bash v4.3.11)</option>
+
+                                    <option>C (GCC 5.4.1)</option>
+
+                                    <option>C (Clang 3.8.0)</option>
+
+                                    <option>C&#43;&#43;14 (Clang 3.8.0)</option>
+
+                                    <option>C# (Mono 4.6.2.0)</option>
+
+                                    <option>Clojure (1.8.0)</option>
+
+                                    <option>Common Lisp (SBCL 1.1.14)</option>
+
+                                    <option>D (DMD64 v2.070.1)</option>
+
+                                    <option>D (LDC 0.17.0)</option>
+
+                                    <option>D (GDC 4.9.4)</option>
+
+                                    <option>Fortran (gfortran v4.8.4)</option>
+
+                                    <option>Go (1.6)</option>
+
+                                    <option>Haskell (GHC 7.10.3)</option>
+
+                                    <option>Java7 (OpenJDK 1.7.0)</option>
+
+                                    <option>Java8 (OpenJDK 1.8.0)</option>
+
+                                    <option>JavaScript (node.js v5.12)</option>
+
+                                    <option>OCaml (4.02.3)</option>
+
+                                    <option>Pascal (FPC 2.6.2)</option>
+
+                                    <option>Perl (v5.18.2)</option>
+
+                                    <option>PHP (5.6.30)</option>
+
+                                    <option>Python2 (2.7.6)</option>
+
+                                    <option>Python3 (3.4.3)</option>
+
+                                    <option>Ruby (2.3.3)</option>
+
+                                    <option>Scala (2.11.7)</option>
+
+                                    <option>Scheme (Gauche 0.9.3.3)</option>
+
+                                    <option>Text (cat)</option>
+
+                                    <option>Visual Basic (Mono 4.0.1)</option>
+
+                                    <option>C&#43;&#43; (GCC 5.4.1)</option>
+
+                                    <option>C&#43;&#43; (Clang 3.8.0)</option>
+
+                                    <option>Objective-C (GCC 5.3.0)</option>
+
+                                    <option>Objective-C (Clang3.8.0)</option>
+
+                                    <option>Swift (swift-2.2-RELEASE)</option>
+
+                                    <option>Rust (1.15.1)</option>
+
+                                    <option>Sed (GNU sed 4.2.2)</option>
+
+                                    <option>Awk (mawk 1.3.3)</option>
+
+                                    <option>Brainfuck (bf 20041219)</option>
+
+                                    <option>Standard ML (MLton 20100608)</option>
+
+                                    <option>PyPy2 (5.6.0)</option>
+
+                                    <option>PyPy3 (2.4.0)</option>
+
+                                    <option>Crystal (0.20.5)</option>
+
+                                    <option>F# (Mono 4.0)</option>
+
+                                    <option>Unlambda (0.1.3)</option>
+
+                                    <option>Lua (5.3.2)</option>
+
+                                    <option>LuaJIT (2.0.4)</option>
+
+                                    <option>MoonScript (0.5.0)</option>
+
+                                    <option>Ceylon (1.2.1)</option>
+
+                                    <option>Julia (0.5.0)</option>
+
+                                    <option>Octave (4.0.2)</option>
+
+                                    <option>Nim (0.13.0)</option>
+
+                                    <option>TypeScript (2.1.6)</option>
+
+                                    <option>Perl6 (rakudo-star 2016.01)</option>
+
+                                    <option>Kotlin (1.0.0)</option>
+
+                                    <option>PHP7 (7.0.15)</option>
+
+                                    <option>COBOL - Fixed (OpenCOBOL 1.1.0)</option>
+
+                                    <option>COBOL - Free (OpenCOBOL 1.1.0)</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">結果</label>
-                                <select class="form-control" name="result" value="{{params.result}}">
-                                    <option>AC</option>
-                                    <option>WA</option>
-                                    <option>TLE</option>
-                                    <option>RE</option>
-                                    <option>MLE</option>
+                                <select class="form-control" name="result" id="result" value="{{params.result}}">
+                                    <option id="res-0">-</option>
+                                    <option id="res-1">AC</option>
+                                    <option id="res-2">WA</option>
+                                    <option id="res-3">TLE</option>
+                                    <option id="res-4">RE</option>
+                                    <option id="res-5">MLE</option>
+                                    <option id="res-6">CE</option>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary">検索</button>
@@ -79,11 +191,18 @@
                     {% for d in data %}
                     <tr>
                         <th>{{d.contest_name}}</th>
-                        <th>{{d.problem_name}}</th>
-                        <th>{{d.user_id}}</th>
+                        <th><a href="{{d.contest_url}}" target="_blank">{{d.problem_name}}</a></th>
+                        <th><a href="https://atcoder.jp/users/{{d.user_id}}" target="_blank">{{d.user_id}}</a></th>
                         <th>{{d.language}}</th>
-                        <th>{{d.result}}</th>
-                        <th><a href="{{d.url}}">詳細</a></th>
+                        <th>
+                            {% if d.result == "AC" %}
+                            <span class="ac">{{d.result}}</span>
+                            {% else %}
+                            <span class="re">{{d.result}}</span>
+                            {% endif %}
+
+                        </th>
+                        <th><a href="{{d.url}}" target="_blank">詳細</a></th>
                     </tr>
                     {% endfor %}
                 </table>
@@ -91,22 +210,8 @@
             </div>
         </div>
     </div>
-
-    <!-- <form class="search-form">
-        <div class="row">
-            <div class="col">
-                <label for="exampleFormControlInput1">検索ワード</label>
-
-                <input type="text" class="form-control" placeholder="First name">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Last name">
-            </div>
-        </div>
-    </form> -->
-
-
-
+    <span class="d-none" id="lang">{{params.language}}</span>
+    <span class="d-none" id="res">{{params.result}}</span>
 </body>
 
 </html>
@@ -114,10 +219,6 @@
     body {
         text-align: center;
         margin: auto;
-    }
-
-    .row {
-        /* width: 100%; */
     }
 
     .graph-right {
@@ -161,6 +262,48 @@
         margin: auto;
         margin-bottom: 10px;
     }
+
+    .ac {
+        background-color: #5cb85c;
+        color: white;
+        padding: 5px;
+        border-radius: 10%;
+    }
+
+    .re {
+        background-color: #f0ad4e;
+        color: white;
+        padding: 5px;
+        border-radius: 10%;
+    }
+
+    a {
+        color: darkblue;
+    }
 </style>
 <script>
+    $(document).ready(function () {
+                document.getElementsByXPath = function (expression, parentElement) {
+            var r = []
+            var x = document.evaluate(expression, parentElement || document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null)
+            for (var i = 0, l = x.snapshotLength; i < l; i++) {
+                r.push(x.snapshotItem(i))
+            }
+            return r
+        }
+        var lang = $("#lang").text();
+        $('#language').find('option').each(function (index, element) {
+            if (lang == element.textContent) {
+                var xpath = '//*[@id="language"]/option[' + String(index + 1) + ']';
+                $(document.getElementsByXPath(xpath)).attr("selected", "selected");
+            }
+        });
+        var result = $("#res").text();
+        $('#result').find('option').each(function (index, element) {
+            if (lang == element.textContent) {
+                $("#res-" + String(index)).attr("selected", "selected");
+            }
+        });
+
+    });
 </script>

@@ -46,8 +46,6 @@ if __name__ == "__main__":
     # print(url_api)
     res = requests.get(url_api)
     data = json.loads(res.text)
-    print(len(data))
-    sys.exit(1)
     # print(data)
     for i, d in tqdm(enumerate(data)):
         sub_id = d["id"]
@@ -55,16 +53,13 @@ if __name__ == "__main__":
         url = "https://atcoder.jp/contests/" + str(contest_id) + "/submissions/" + str(sub_id)
         res = getSubmissionCode(url)
         res = str(res)
-        # print(res)
         parser = Parser()
         parser.feed(res)
         parser.close()
         code = ""
         for i in parser.data:
             code = i['title'].replace("\\r\\n", "\n").replace("\\t", "    ")
-            # print(code)
-            break 
-        # print(code)
+            break
         body = {
             "user_id": user_name,
             "url": url,
@@ -77,4 +72,3 @@ if __name__ == "__main__":
             "point": d["point"]
         }
         es.index(index="atcoder_submissions", body=body)
-
